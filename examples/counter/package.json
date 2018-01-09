@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "enzyme": "^2.8.2",
-    "react-scripts": "^1.0.2",
+    "react-scripts": "^1.0.17",
     "react-test-renderer": "^15.6.1"
   },
   "dependencies": {
@@ -12,7 +12,8 @@
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-redux": "^5.0.5",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

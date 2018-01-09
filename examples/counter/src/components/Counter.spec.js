@@ -5,7 +5,8 @@ import Counter from './Counter'
 function setup(value = 0) {
   const actions = {
     onIncrement: jest.fn(),
-    onDecrement: jest.fn()
+    onDecrement: jest.fn(),
+    double: jest.fn()
   }
   const component = shallow(
     <Counter value={value} {...actions} />
@@ -62,5 +63,11 @@ describe('Counter component', () => {
       expect(actions.onIncrement).toBeCalled()
       done()
     }, 1000)
+  })
+
+  it('fifth button should call double', () => {
+    const { buttons, actions } = setup(43)
+    buttons.at(4).simulate('click')
+    expect(actions.double).toBeCalled()
   })
 })

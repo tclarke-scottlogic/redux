@@ -6,6 +6,7 @@ class Counter extends Component {
     super(props);
     this.incrementAsync = this.incrementAsync.bind(this);
     this.incrementIfOdd = this.incrementIfOdd.bind(this);
+    this.doubleIt = this.doubleIt.bind(this);  /// TODO - Look this bit up
   }
 
   incrementIfOdd() {
@@ -18,8 +19,12 @@ class Counter extends Component {
     setTimeout(this.props.onIncrement, 1000)
   }
 
+  doubleIt(){
+    this.props.double()
+  }
+
   render() {
-    const { value, onIncrement, onDecrement } = this.props
+    const { value, onIncrement, onDecrement, double } = this.props
     return (
       <p>
         Clicked: {value} times
@@ -39,6 +44,10 @@ class Counter extends Component {
         <button onClick={this.incrementAsync}>
           Increment async
         </button>
+        {'  '}
+        <button onClick={this.doubleIt}>
+          Double
+        </button>
       </p>
     )
   }
@@ -47,7 +56,8 @@ class Counter extends Component {
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
+  onDecrement: PropTypes.func.isRequired,
+  double: PropTypes.func.isRequired
 }
 
 export default Counter
